@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Volunteer or Not? | تطوع ولا لأ؟</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f1fa;--ink:#1f1b2e;--mut:#6b6580;--card:#fff;--line:#e3dff0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15121f;--ink:#f2effa;--mut:#a9a3bd;--card:#221e33;--line:#363050;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Cairo',system-ui,sans-serif;min-height:100vh}
+main{max-width:760px;margin:auto;padding:18px}
+button{font-family:inherit;cursor:pointer}
+.btn{border:0;border-radius:14px;padding:13px 30px;font-size:18px;font-weight:800;color:#fff;background:#7c5cff;box-shadow:0 6px 16px rgba(124,92,255,.35);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.center{text-align:center}
+h1{font-size:clamp(34px,8vw,54px);margin:8px 0 4px;font-weight:800}
+.sub{font-weight:700;color:#7c5cff}
+.intro{font-size:19px;line-height:1.9;color:var(--mut);max-width:580px;margin:14px auto}
+.fan{display:flex;justify-content:center;margin:20px 0}
+.fan svg{width:78px;height:78px;border-radius:50%;border:4px solid var(--bg);margin-inline-start:-14px;transition:transform .2s}
+.fan svg:hover{transform:translateY(-8px)}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0;text-align:start}
+@media(max-width:600px){.how{grid-template-columns:1fr}}
+.how div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;line-height:1.7;font-size:15px}
+.how b{display:block;font-size:17px;margin-bottom:2px}
+.legend{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:10px 0 22px;font-size:13px;font-weight:700;color:var(--mut)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-inline-end:5px}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-weight:800}
+.bar{flex:1;height:10px;background:var(--line);border-radius:10px;overflow:hidden}
+.bar i{display:block;height:100%;background:#7c5cff;transition:width .5s}
+.score{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:4px 14px;color:#7c5cff}
+.gc{background:var(--card);border-radius:28px;box-shadow:0 18px 40px rgba(0,0,0,.16);overflow:hidden;border-top:12px solid var(--c);transition:border-color .4s}
+.enter{animation:in .5s cubic-bezier(.3,.8,.3,1)}
+@keyframes in{from{opacity:0;transform:translateY(24px) rotate(-2deg)}to{opacity:1;transform:none}}
+.who{display:flex;align-items:center;gap:14px;padding:20px 22px 0}
+.who svg{width:104px;height:104px;border-radius:50%;flex:none}
+.nm{font-size:26px;font-weight:800}
+.sit{padding:14px 22px 6px;font-size:20px;line-height:1.9;font-weight:600}
+.ch{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px 22px 22px}
+@media(max-width:480px){.ch{grid-template-columns:1fr}}
+.ch button{border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:16px;padding:16px;font-size:18px;font-weight:800;transition:.2s}
+.ch button:not(:disabled):hover{border-color:#7c5cff;transform:translateY(-3px);box-shadow:0 8px 16px rgba(0,0,0,.12)}
+.ch button:disabled{cursor:default}
+.ch .ok{background:#22a05a;color:#fff;border-color:#22a05a}
+.ch .no{background:#e5484d;color:#fff;border-color:#e5484d}
+.ch .dim{opacity:.45}
+.fb{background:var(--c);color:#fff;padding:18px 22px 22px;animation:in .4s}
+.fb.yel{color:#2a2100}
+.fb h3{margin:0 0 4px;font-size:22px}
+.cat{display:inline-block;background:rgba(255,255,255,.25);border-radius:20px;padding:2px 12px;font-size:13px;font-weight:800;margin-bottom:8px}
+.fb.yel .cat{background:rgba(0,0,0,.12)}
+.fb p{margin:8px 0;line-height:1.85;font-size:16.5px}
+.fb .tk{background:rgba(0,0,0,.16);border-radius:14px;padding:10px 14px;font-weight:700}
+.fb.yel .tk{background:rgba(255,255,255,.5)}
+.nx{text-align:center;margin-top:18px}
+.res{background:var(--card);border-radius:28px;padding:28px 22px;box-shadow:0 18px 40px rgba(0,0,0,.14);text-align:center;border-top:12px solid var(--c)}
+.big{font-size:64px;font-weight:800;color:var(--c);line-height:1.1}
+.pct{color:var(--mut);font-weight:700}
+.msg{font-size:21px;font-weight:700;line-height:1.8;margin:14px 0}
+.refl{background:var(--bg);border:2px dashed #7c5cff;border-radius:18px;padding:16px;margin:18px 0;font-size:19px;font-weight:800;line-height:1.8}
+.refl small{display:block;color:#7c5cff;font-size:13px;margin-bottom:4px}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const G='#22a05a',R='#e5484d',P='#7c5cff',Y='#f5b400';
+const CAT={g:['تطوع مسؤول',G],r:['سلوك غير مسؤول',R],p:['مفهوم مغلوط',P],y:['موقف صعب',Y]};
+// answer: true = تطوع مسؤول
+const D=[
+{n:'أحمد',s:'أحمد شارك في فريق تطوعي، لكنه مهتم بالحصول على شهادة المشاركة فقط، ومش مهتم بالمهام نفسها.',a:false,c:'r',
+e:'الشهادة نتيجة جانبية حلوة، لكن لما تكون هي الهدف الوحيد بيتحول التطوع لمصلحة شخصية، والمهام بتتنفذ من غير اهتمام بالناس أو بالأثر.',p:'التطوع بيبدأ من الاهتمام بالمهمة والناس، مش من المقابل.',k:'قبل كل مهمة اسأل نفسك: هضيف إيه للفريق؟ مش هاخد إيه.',
+ch:{skin:'#e8b894',hair:'#2b2230',shirt:'#7c5cff',bg:'#e7e0ff',st:'short',m:'smug',b:0}},
+{n:'مريم',s:'مريم مش شاطرة في التصميم، لكنها بتساعد الفريق في التنظيم والتنسيق حسب مهاراتها.',a:true,c:'g',
+e:'مش لازم تكون شاطر في كل حاجة. المهم تقدم اللي تقدر عليه بجد، والتنظيم والتنسيق شغل أساسي بيخلي الفريق كله يمشي.',p:'المسؤولية إنك توظف مهاراتك الحقيقية في خدمة الفريق.',k:'اختار مهمة تناسب مهارتك، وقول بصراحة اللي مش قادر عليه.',
+ch:{skin:'#c68b62',hair:'#1c1517',hc:'#0f8f82',shirt:'#14b8a6',bg:'#d5f4ef',st:'hijab',m:'happy',b:0}},
+{n:'يوسف',s:'يوسف وافق على تنفيذ مهمة، وبعدها اختفى من غير ما يبلغ حد إنه مش هيقدر يكملها.',a:false,c:'r',
+e:'لما وافق على المهمة، الفريق بنى خطته على كلامه. الاختفاء من غير إبلاغ بيعطل الناس وبيضيع فرصة إنهم يلاقوا بديل في الوقت المناسب.',p:'الالتزام بالكلمة جزء من المسؤولية، وإبلاغ الظروف بدري واجب.',k:'لو مش هتقدر تكمل، بلّغ بدري عشان حد تاني يشيل المهمة.',
+ch:{skin:'#a8714b',hair:'#1a1416',shirt:'#ff6f61',bg:'#ffe1dd',st:'cap',m:'worried',b:1}},
+{n:'نور',s:'نور بتشتغل في تجهيز الأدوات وتنظيم المكان، رغم إن دورها مش ظاهر للناس.',a:true,c:'p',
+e:'كتير بيفتكروا إن التطوع المهم هو اللي بيظهر في الصور والمنصات. لكن الأدوار الخلفية هي اللي بتخلي النشاط ينجح من الأساس.',p:'قيمة الدور بتتحدد بأثره، مش بمدى ظهوره.',k:'قدّر الأدوار الخفية واشكر أصحابها، وماتستهنش بدورك.',
+ch:{skin:'#f0c4a0',hair:'#7a3b22',shirt:'#f5b400',bg:'#fff0c4',st:'bun',m:'happy',b:0}},
+{n:'عمر',s:'عمر خلص مهمته، ولاحظ إن زميله محتاج مساعدة، فقرر يساعده بعد ما اتأكد إن مهمته الأساسية خلصت.',a:true,c:'y',
+e:'عمر ماقصّرش في مسؤوليته، وبعدها بادر يساعد. التعاون بعد الإنجاز بيقوّي الفريق من غير ما يضيّع التزام حد.',p:'الأولوية لمسؤوليتك الأساسية، وبعدها المبادرة بالمساعدة.',k:'خلّص التزامك الأول، وبعدين اسأل: أقدر أساعد حد؟',
+ch:{skin:'#d9a07a',hair:'#2a1c18',shirt:'#3b82f6',bg:'#dbe8ff',st:'curly',m:'happy',b:0,g:1}},
+{n:'سارة',s:'سارة بتشارك في كل الأنشطة، لكنها مش بتلتزم بالمواعيد أو المسؤوليات.',a:false,c:'p',
+e:'كتير بيفتكروا إن الحضور في كل حاجة معناه مسؤولية. لكن من غير التزام بالمواعيد والمهام، الأنشطة الكتيرة بتبقى عبء على الفريق.',p:'المسؤولية بالجودة والالتزام، مش بعدد الأنشطة.',k:'اشترك في أنشطة أقل لو لازم، بس التزم بكل حاجة وافقت عليها.',
+ch:{skin:'#e8b894',hair:'#3a2a1d',shirt:'#ec4899',bg:'#fde0ee',st:'long',m:'flat',b:0}},
+{n:'كريم',s:'كريم مش قادر يحضر اجتماع بسبب امتحان، فبلّغ مسؤول الفريق بدري ووضح موقفه.',a:true,c:'y',
+e:'الظروف بتحصل ومحدش بيطلب منك تتجاهلها. اللي فرّق إنه بلّغ بدري ووضح موقفه، فالفريق قدر يرتب بديل من غير ارتباك.',p:'الشفافية والتواصل المبكر بيحافظوا على ثقة الفريق.',k:'أول ما تعرف إن في تعارض، بلّغ فورًا واقترح حل.',
+ch:{skin:'#f1c9a5',hair:'#1f2a44',shirt:'#0ea5e9',bg:'#d8f0fb',st:'short',m:'worried',b:0,g:1}},
+{n:'منة',s:'منة بتنفذ أي تعليمات من غير ما تسأل أو تفهم الهدف منها.',a:false,c:'p',
+e:'تنفيذ التعليمات من غير فهم ممكن يخلي الشغل سطحي ويفوّت أخطاء كان ممكن تتلاحظ. المتطوع المسؤول بيسأل ويفهم الهدف.',p:'المسؤولية فيها وعي، مش طاعة عمياء.',k:'اسأل: ليه بنعمل كده؟ وإيه الأثر المطلوب؟',
+ch:{skin:'#c68b62',hair:'#5b2a86',hc:'#7c5cff',shirt:'#8b5cf6',bg:'#ece4ff',st:'hijab',m:'flat',b:0}},
+{n:'علي',s:'علي اقترح فكرة جديدة لتحسين النشاط، وشارك في تنفيذها.',a:true,c:'g',
+e:'علي ماقالش فكرة وساب غيره ينفذها، لكنه شارك فعلًا. المبادرة المسؤولة هي فكرة مع استعداد تشيل جزء منها.',p:'المبادرة المسؤولة = فكرة + مشاركة في التنفيذ.',k:'لو عندك اقتراح، جهّز نفسك تشارك في تنفيذه.',
+ch:{skin:'#a8714b',hair:'#1a1416',shirt:'#22a05a',bg:'#d9f2e2',st:'cap',m:'happy',b:0}},
+{n:'هدير',s:'هدير بتتعامل مع المستفيدين بطريقة غير محترمة، رغم إنها بتنفذ المطلوب منها.',a:false,c:'r',
+e:'تنفيذ المهمة مش كفاية لو طريقة التعامل بتجرح الناس. التطوع أساسه احترام كرامة اللي بنخدمهم، والأسلوب جزء من الأثر.',p:'طريقة التعامل مع الناس جزء أساسي من المسؤولية.',k:'اتعامل مع كل مستفيد بالاحترام اللي تحب تتعامل بيه.',
+ch:{skin:'#e8b894',hair:'#2b2230',shirt:'#e5484d',bg:'#ffdede',st:'long',m:'frown',b:1}},
+{n:'زياد',s:'زياد بيطلب Feedback بعد كل مهمة عشان يطور أداءه.',a:true,c:'g',
+e:'طلب الـ Feedback دليل إنه مهتم يتطور ويفيد أكتر. المتطوع المسؤول بيتعلم من تجربته وبيسمع للتقييم.',p:'التطوير المستمر من علامات المسؤولية.',k:'بعد كل مهمة اسأل سؤال محدد: إيه اللي أقدر أعمله أحسن؟',
+ch:{skin:'#f1c9a5',hair:'#3a2a1d',shirt:'#f97316',bg:'#ffe6d3',st:'curly',m:'happy',b:0}},
+{n:'بسمة',s:'بسمة بتشجع زملاءها وبتشارك المعرفة معاهم بدل ما تحتكر المعلومات.',a:true,c:'g',
+e:'مشاركة المعرفة بتقوّي الفريق كله وبتخلي الشغل يستمر حتى لو حد غاب. احتكار المعلومات بيعمل نقاط ضعف وبيبعد الناس.',p:'الفريق بيقوى بالمشاركة، مش بالاحتكار.',k:'وثّق اللي اتعلمته وشاركه مع أي زميل جديد.',
+ch:{skin:'#d9a07a',hair:'#2a1c18',shirt:'#14b8a6',bg:'#d5f4ef',st:'bun',m:'happy',b:0}}];
+const MS={happy:'M51 69Q60 78 69 69',flat:'M53 72H67',worried:'M52 74Q60 68 68 74',frown:'M52 75Q60 67 68 75',smug:'M52 71Q62 76 69 68'};
+function av(c){const h=c.hc||c.hair;let s='<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">';
+s+=`<rect width="120" height="120" fill="${c.bg}"/>`;
+if(c.st==='long')s+=`<path d="M30 60Q30 18 60 18Q90 18 90 60L92 104H28Z" fill="${h}"/>`;
+if(c.st==='hijab')s+=`<path d="M26 72Q26 16 60 16Q94 16 94 72L100 120H20Z" fill="${h}"/>`;
+s+=`<path d="M18 120Q20 88 60 88Q100 88 102 120Z" fill="${c.shirt}"/><rect x="53" y="76" width="14" height="16" rx="5" fill="${c.skin}"/><ellipse cx="60" cy="58" rx="22" ry="25" fill="${c.skin}"/>`;
+if(c.st==='short'||c.st==='bun')s+=`<path d="M37 54Q36 28 60 28Q84 28 83 54Q72 40 60 42Q48 40 37 54Z" fill="${c.hair}"/>`;
+if(c.st==='bun')s+=`<circle cx="60" cy="20" r="10" fill="${c.hair}"/>`;
+if(c.st==='long')s+=`<path d="M37 56Q38 30 60 30Q82 30 83 56Q68 38 52 44Q42 48 37 56Z" fill="${c.hair}"/>`;
+if(c.st==='curly')s+=`<g fill="${c.hair}"><circle cx="42" cy="38" r="12"/><circle cx="56" cy="31" r="13"/><circle cx="72" cy="33" r="13"/><circle cx="81" cy="45" r="9"/><circle cx="38" cy="50" r="7"/></g>`;
+if(c.st==='cap')s+=`<path d="M36 52Q36 24 60 24Q84 24 84 52Z" fill="${c.hair}"/><path d="M34 52H98L96 58H34Z" fill="${c.hair}"/>`;
+const t=c.m==='worried'?'rotate(-8 51 52)':'',t2=c.m==='worried'?'rotate(8 69 52)':'';
+s+=`<circle cx="51" cy="60" r="2.6" fill="#241c2b"/><circle cx="69" cy="60" r="2.6" fill="#241c2b"/><g stroke="#241c2b" stroke-width="2.2" stroke-linecap="round"><path d="M45 52H57" transform="${c.m==='frown'?'rotate(10 51 52)':t}"/><path d="M63 52H75" transform="${c.m==='frown'?'rotate(-10 69 52)':t2}"/></g><path d="${MS[c.m]}" stroke="#241c2b" stroke-width="2.4" fill="none" stroke-linecap="round"/>`;
+if(c.g)s+='<g fill="none" stroke="#241c2b" stroke-width="2"><circle cx="51" cy="60" r="7"/><circle cx="69" cy="60" r="7"/><path d="M58 60h4"/></g>';
+if(c.b)s+='<path d="M40 64Q42 84 60 84Q78 84 80 64Q74 78 60 78Q46 78 40 64Z" fill="#2b2230" opacity=".85"/>';
+return s+'</svg>';}
+const N=n=>n.toLocaleString('ar-EG');
+const S={screen:'welcome',i:0,score:0,pick:null,fresh:true};
+const app=document.getElementById('app');
+function render(){let h='';
+if(S.screen==='welcome'){
+h=`<div class="center"><div class="fan">${D.slice(0,7).map(d=>av(d.ch)).join('')}</div><h1>Volunteer or Not?</h1><div class="sub">تطوع ولا لأ؟ · اليوم الثاني: افهم الـ "ليه" بتاعك</div>
+<p class="intro">مش كل شخص بيشارك في نشاط تطوعي بيكون فاهم فعلًا يعني إيه تطوع. في اللعبة دي هنعرض عليك مواقف مختلفة، ومهمتك تحدد: هل ده سلوك تطوعي مسؤول ولا لأ؟</p>
+<div class="how"><div><b>١. اقرا الموقف</b>كل كارت فيه شخصية وموقف قصير من الحياة التطوعية.</div><div><b>٢. اختار إجابتك</b>تطوع مسؤول، ولا مش تطوع مسؤول؟ كل إجابة صح بـ ١٠ نقط.</div><div><b>٣. افهم ليه</b>بعد كل إجابة هتشوف تفسير والفكرة اللي وراه، والتفسير أهم من النقط.</div></div>
+<div class="legend"><span><i style="background:${G}"></i>تطوع مسؤول</span><span><i style="background:${R}"></i>سلوك غير مسؤول</span><span><i style="background:${P}"></i>مفهوم مغلوط</span><span><i style="background:${Y}"></i>موقف صعب</span></div>
+<button class="btn" id="st">ابدأ اللعبة</button></div>`;}
+else if(S.screen==='play'){
+const d=D[S.i],c=CAT[d.c],done=S.pick!==null,right=done&&S.pick===d.a;
+const col=done?c[1]:d.ch.shirt;
+const btn=(v,l)=>{let k='';if(done){if(v===d.a)k='ok';else if(v===S.pick)k='no';else k='dim'}return `<button class="${k}" data-v="${v}" ${done?'disabled':''}>${l}</button>`};
+h=`<div class="top"><span>${N(S.i+1)} / ${N(12)}</span><div class="bar"><i style="width:${(S.i+(done?1:0))/12*100}%"></i></div><span class="score">⭐ ${N(S.score)}</span></div>
+<div class="gc ${S.fresh?'enter':''}" style="--c:${col}"><div class="who">${av(d.ch)}<div><div class="nm">${d.n}</div><div style="color:var(--mut);font-weight:600">موقف ${N(S.i+1)}</div></div></div>
+<div class="sit">${d.s}</div><div class="ch">${btn(true,'✅ تطوع مسؤول')}${btn(false,'🚫 مش تطوع مسؤول')}</div>
+${done?`<div class="fb ${d.c==='y'?'yel':''}" style="--c:${c[1]}"><span class="cat">${c[0]}</span><h3>${right?'إجابتك صح! +١٠ نقط 👏':'قريب، بس مش بالظبط 🤔'}</h3><p>${d.e}</p><p><b>الفكرة:</b> ${d.p}</p><p class="tk">💡 خلاصة عملية: ${d.k}</p></div>`:''}</div>
+${done?`<div class="nx"><button class="btn" id="nx">${S.i<11?'الكارت اللي بعده ←':'شوف النتيجة 🏁'}</button></div>`:''}`;}
+else{
+const pc=Math.round(S.score/120*100);
+let m,col;
+if(pc>=90){m='فاهم معنى المسؤولية التطوعية بشكل ممتاز.';col=G}else if(pc>=70){m='عندك فهم جيد، لكن محتاج تنتبه لبعض التفاصيل.';col=P}else if(pc>=50){m='بدأت تميز السلوك التطوعي، ولسه عندك مساحة للتعلم.';col=Y}else{m='محتاج تعيد التفكير في معنى التطوع والمسؤولية.';col=R}
+h=`<div class="res" style="--c:${col}"><div class="pct">النتيجة النهائية</div><div class="big">${N(S.score)} <span style="font-size:26px">/ ${N(120)}</span></div><div class="pct">${N(pc)}٪ إجابات صح</div><div class="msg">${m}</div>
+<div class="refl"><small>سؤال للنقاش</small>هل ممكن يكون الشخص متطوعًا وبيعمل مهام كتير، لكنه مش متطوع مسؤول؟ ليه؟</div><button class="btn" id="rs">العب تاني 🔄</button></div>`;}
+app.innerHTML=h;S.fresh=false;
+const g=id=>document.getElementById(id);
+if(g('st'))g('st').onclick=()=>{S.screen='play';S.fresh=true;render()};
+document.querySelectorAll('.ch button').forEach(b=>b.onclick=()=>{if(S.pick!==null)return;S.pick=b.dataset.v==='true';if(S.pick===D[S.i].a)S.score+=10;render();const f=document.querySelector('.fb');if(f)f.scrollIntoView({behavior:'smooth',block:'nearest'})});
+if(g('nx'))g('nx').onclick=()=>{if(S.i<11){S.i++;S.pick=null;S.fresh=true}else S.screen='end';render();window.scrollTo(0,0)};
+if(g('rs'))g('rs').onclick=()=>{S.screen='welcome';S.i=0;S.score=0;S.pick=null;render();window.scrollTo(0,0)};}
+render();
+</script>
+</body>
+</html>
